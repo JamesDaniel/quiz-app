@@ -185,13 +185,41 @@
         android:text="@string/submit_btn"
         app:layout_constraintTop_toBottomOf="@+id/question4RadioGroup"/>
 
+      <!-- Question5 -->
+      <TextView
+        android:id="@+id/question5titleTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/question5title"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/question4submitBtn"/>
+      <TextView
+        android:id="@+id/question5questionTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/question5question"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/question5titleTxt"/>
+      <EditText
+        android:id="@+id/question5input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        app:layout_constraintTop_toBottomOf="@+id/question5questionTxt"/>
+      <Button
+        android:id="@+id/question5submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_btn"
+        app:layout_constraintTop_toBottomOf="@+id/question5input"/>
+
       <Button
         android:id="@+id/checkScoreBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding"
         android:text="@string/chk_score_btn"
-        app:layout_constraintTop_toBottomOf="@+id/question4submitBtn"/>
+        app:layout_constraintTop_toBottomOf="@+id/question5submitBtn"/>
 
       <TextView
         android:id="@+id/finalScoreTxt"

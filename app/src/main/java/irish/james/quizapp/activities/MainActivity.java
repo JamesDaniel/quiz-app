@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
   private Button question2submitBtn;
   private Button question3submitBtn;
   private Button question4submitBtn;
+  private Button question5submitBtn;
   private Button checkScoreBtn;
   private CheckBox question1CheckboxContainerization;
   private CheckBox question1CheckboxObjectOriented;
@@ -29,12 +31,14 @@ public class MainActivity extends AppCompatActivity {
   private RadioButton question4radio1;
   private RadioButton question4radio2;
   private TextView finalScoreTxt;
+  private EditText question5input;
 
   private int score = 0;
   private boolean question1answered;
   private boolean question2answered;
   private boolean question3answered;
   private boolean question4answered;
+  private boolean question5answered;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     question2submitBtn = findViewById(R.id.question2submitBtn);
     question3submitBtn = findViewById(R.id.question3submitBtn);
     question4submitBtn = findViewById(R.id.question4submitBtn);
+    question5submitBtn = findViewById(R.id.question5submitBtn);
     checkScoreBtn = findViewById(R.id.checkScoreBtn);
     question1CheckboxContainerization = findViewById(R.id.question1CheckboxContainerization);
     question1CheckboxObjectOriented = findViewById(R.id.question1CheckboxObjectOriented);
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     question4radio1 = findViewById(R.id.question4radio1);
     question4radio2 = findViewById(R.id.question4radio2);
     finalScoreTxt = findViewById(R.id.finalScoreTxt);
+    question5input = findViewById(R.id.question5input);
 
     question1submitBtn.setOnClickListener(new OnClickListener() {
       @Override
@@ -109,12 +115,27 @@ public class MainActivity extends AppCompatActivity {
         }
       }
     });
+    question5submitBtn.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        disableQuestion5();
+        if (question5input.getText().toString().contains("oracle") ||
+            question5input.getText().toString().contains("Oracle")) {
+          disableQuestion5();
+          score++;
+          toast("Correct");
+        } else {
+          toast("Incorrect");
+        }
+      }
+    });
     checkScoreBtn.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (question1answered && question2answered && question3answered && question4answered) {
+        if (question1answered && question2answered && question3answered && question4answered && question5answered) {
           checkScoreBtn.setEnabled(false);
           finalScoreTxt.setText("Score total: " + score);
+          toast("Final score: " + score);
         } else {
           toast("Please answer all questions.");
         }
@@ -150,6 +171,12 @@ public class MainActivity extends AppCompatActivity {
     question4submitBtn.setEnabled(false);
     question4radio1.setEnabled(false);
     question4radio2.setEnabled(false);
+  }
+
+  private void disableQuestion5() {
+    question5answered = true;
+    question5submitBtn.setEnabled(false);
+    question5input.setEnabled(false);
   }
 
   private void toast(String msg) {

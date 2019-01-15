@@ -1,16 +1,18 @@
 <resources>
   <string name="app_name">Quiz App</string>
 
-  <string name="title">Answer 4 Questions</string>
+  <string name="title">Answer 5 Questions</string>
   <string name="question1title">Question 1</string>
   <string name="question2title">Question 2</string>
   <string name="question3title">Question 3</string>
   <string name="question4title">Question 4</string>
+  <string name="question5title">Question 5</string>
 
   <string name="question1question">What are the features of Java?</string>
   <string name="question2question">What best describes the Java programming language?</string>
   <string name="question3question">Did Java and Javascript start out as the same language?</string>
   <string name="question4question">Is an int and an Integer the same thing?</string>
+  <string name="question5question">What company owns Java?</string>
 
   <string name="submit_btn">Submit</string>
   <string name="chk_score_btn">Check Score</string>
